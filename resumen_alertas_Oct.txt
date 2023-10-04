@@ -1,107 +1,73 @@
 ======================================================
-** Alert 1696171467.0: mail  - ossec,
-2023 Oct 01 16:44:27 fedora->ossec-monitord
+** Alert 1696458703.0: mail  - ossec,
+2023 Oct 05 00:31:43 fedora->ossec-monitord
 Rule: 502 (level 3) -> 'Ossec server started.'
 ossec: Ossec started.
 
-** Alert 1696171687.152: mail  - ossec,rootcheck,
-2023 Oct 01 16:48:07 fedora->rootcheck
-Rule: 510 (level 7) -> 'Host-based anomaly detection event (rootcheck).'
-Trojaned version of file '/bin/diff' detected. Signature used: 'bash|^/bin/sh|file\.h|proc\.h|/dev/[^n]|^/bin/.*sh' (Generic).
-
-** Alert 1696171687.442: mail  - ossec,rootcheck,
-2023 Oct 01 16:48:07 fedora->rootcheck
-Rule: 510 (level 7) -> 'Host-based anomaly detection event (rootcheck).'
-Trojaned version of file '/usr/bin/diff' detected. Signature used: 'bash|^/bin/sh|file\.h|proc\.h|/dev/[^n]|^/bin/.*sh' (Generic).
-
-** Alert 1696171712.736: - ossec,rootcheck,
-2023 Oct 01 16:48:32 fedora->rootcheck
-Rule: 516 (level 3) -> 'System Audit event.'
-System Audit: CIS - Testing against the CIS Red Hat Enterprise Linux Benchmark v1.0.5. File: /etc/fedora-release. Reference: https://benchmarks.cisecurity.org/tools2/linux/CIS_RHLinux_Benchmark_v1.0.5.pdf .
-
-** Alert 1696171712.1072: - ossec,rootcheck,
-2023 Oct 01 16:48:32 fedora->rootcheck
-Rule: 516 (level 3) -> 'System Audit event.'
-System Audit: CIS - Red Hat Linux - - Build considerations - Robust partition scheme - /var is not on its own partition. File: /etc/fstab. Reference: https://benchmarks.cisecurity.org/tools2/linux/CIS_RHLinux_Benchmark_v1.0.5.pdf .
-
-** Alert 1696171712.1434: - ossec,rootcheck,
-2023 Oct 01 16:48:32 fedora->rootcheck
-Rule: 516 (level 3) -> 'System Audit event.'
-System Audit: CIS - Red Hat Linux - 3.1 - Set daemon umask - Default umask is higher than 027 {CIS: 3.1 Red Hat Linux}. File: /etc/init.d/functions. Reference: https://benchmarks.cisecurity.org/tools2/linux/CIS_RHLinux_Benchmark_v1.0.5.pdf .
-
-** Alert 1696172171.1806: mail  - ossec,
-2023 Oct 01 16:56:11 fedora->ossec-monitord
-Rule: 502 (level 3) -> 'Ossec server started.'
-ossec: Ossec started.
-
-** Alert 1696172259.1961: mail  - ossec,
-2023 Oct 01 16:57:39 fedora->ossec-monitord
-Rule: 502 (level 3) -> 'Ossec server started.'
-ossec: Ossec started.
-
-** Alert 1696172448.2116: mail  - ossec,syscheck,
-2023 Oct 01 17:00:48 fedora->syscheck
+** Alert 1696458761.152: mail  - ossec,syscheck,
+2023 Oct 05 00:32:41 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0018'
-Size changed from '0' to '10'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0031'
+Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
-New md5sum is : '95e08e71e1750b12a8c00f05cb46317b'
+New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
 Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
-New sha1sum is : 'd693ae5003a64271e2a845a38b76d53a79eb4f5d'
+New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
-** Alert 1696172448.2596: mail  - ossec,syscheck,
-2023 Oct 01 17:00:48 fedora->syscheck
+** Alert 1696458763.631: mail  - ossec,syscheck,
+2023 Oct 05 00:32:43 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-1000'
-Size changed from '0' to '25'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0035'
+Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
-New md5sum is : 'da47e5af770f49bba8d047939fed835a'
+New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
 Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
-New sha1sum is : 'e12c89c03f17dbbd5fdb9405ef758ab80c66de81'
+New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
-** Alert 1696176792.3076: mail  - ossec,
-2023 Oct 01 18:13:12 fedora->ossec-monitord
-Rule: 502 (level 3) -> 'Ossec server started.'
-ossec: Ossec started.
-
-** Alert 1696176980.3231: mail  - ossec,syscheck,
-2023 Oct 01 18:16:20 fedora->syscheck
-Rule: 551 (level 7) -> 'Integrity checksum changed again (2nd time).'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0018'
-Size changed from '10' to '11'
-Old md5sum was: '95e08e71e1750b12a8c00f05cb46317b'
-New md5sum is : '38dd8faf3f5da0c479998180b910ea60'
-Old sha1sum was: 'd693ae5003a64271e2a845a38b76d53a79eb4f5d'
-New sha1sum is : '606796a47637d738bf1d3a780d47a0e18badbf2e'
-
-
-** Alert 1696178642.3729: mail  - ossec,
-2023 Oct 01 18:44:02 fedora->ossec-monitord
-Rule: 502 (level 3) -> 'Ossec server started.'
-ossec: Ossec started.
-
-** Alert 1696178830.3884: mail  - ossec,syscheck,
-2023 Oct 01 18:47:10 fedora->syscheck
-Rule: 552 (level 7) -> 'Integrity checksum changed again (3rd time).'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0018'
-Size changed from '11' to '30'
-Old md5sum was: '38dd8faf3f5da0c479998180b910ea60'
-New md5sum is : 'dde22bd9df7ce8edb047166f2cb27020'
-Old sha1sum was: '606796a47637d738bf1d3a780d47a0e18badbf2e'
-New sha1sum is : '0caf09045544b120f500cdaeffd697b723c83b93'
-
-
-** Alert 1696178830.4382: mail  - ossec,syscheck,
-2023 Oct 01 18:47:10 fedora->syscheck
+** Alert 1696458769.1110: mail  - ossec,syscheck,
+2023 Oct 05 00:32:49 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0999'
-Size changed from '0' to '13'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0089'
+Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
-New md5sum is : 'f1c1579eaf017a65b31d367062be807b'
+New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
 Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
-New sha1sum is : '1f3508bfdc0ffd5fe88c6e8dedbcec85e5db9990'
+New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
+
+
+** Alert 1696458795.1590: mail  - ossec,syscheck,
+2023 Oct 05 00:33:15 fedora->syscheck
+Rule: 550 (level 7) -> 'Integrity checksum changed.'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0273'
+Size changed from '0' to '79'
+Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
+New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
+Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
+New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
+
+
+** Alert 1696458826.2070: mail  - ossec,syscheck,
+2023 Oct 05 00:33:46 fedora->syscheck
+Rule: 550 (level 7) -> 'Integrity checksum changed.'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0503'
+Size changed from '0' to '79'
+Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
+New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
+Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
+New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
+
+
+** Alert 1696458846.2550: mail  - ossec,syscheck,
+2023 Oct 05 00:34:06 fedora->syscheck
+Rule: 550 (level 7) -> 'Integrity checksum changed.'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0653'
+Size changed from '0' to '79'
+Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
+New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
+Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
+New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
 ======================================================

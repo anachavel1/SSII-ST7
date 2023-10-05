@@ -15,6 +15,9 @@ fi
 # Obtiene el nombre del mes en formato abreviado (por ejemplo, "Oct" para octubre)
 month=$(date -d "$1/1" "+%b")
 
+# Convierte la primera letra del mes a mayúsculas
+month=$(echo "$month" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
+
 year=$(date "+%Y")
 
 # Directorio de alertas
@@ -37,4 +40,5 @@ for file in "$alert_dir/ossec-alerts-"*; do
 done
 
 echo "Resumen de alertas de seguridad generado en $output_file"
+
 

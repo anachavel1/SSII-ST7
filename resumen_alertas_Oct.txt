@@ -1,13 +1,18 @@
 ======================================================
-** Alert 1696458703.0: mail  - ossec,
-2023 Oct 05 00:31:43 fedora->ossec-monitord
+** Alert 1696617162.0: mail  - ossec,low_diskspace,
+2023 Oct 06 20:32:42 fedora->df -P
+Rule: 531 (level 7) -> 'Partition usage reached 100% (disk space monitor).'
+ossec: output: 'df -P': /dev/loop0             128       128         0     100% /var/lib/snapd/snap/bare/5
+
+** Alert 1696617165.271: mail  - ossec,
+2023 Oct 06 20:32:45 fedora->ossec-monitord
 Rule: 502 (level 3) -> 'Ossec server started.'
 ossec: Ossec started.
 
-** Alert 1696458761.152: mail  - ossec,syscheck,
-2023 Oct 05 00:32:41 fedora->syscheck
+** Alert 1696617221.425: mail  - ossec,syscheck,
+2023 Oct 06 20:33:41 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0031'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0006'
 Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
 New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
@@ -15,10 +20,23 @@ Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
 New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
-** Alert 1696458763.631: mail  - ossec,syscheck,
-2023 Oct 05 00:32:43 fedora->syscheck
+** Alert 1696617223.904: mail  - ossec,syscheck,
+2023 Oct 06 20:33:43 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0035'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0018'
+Size changed from '30' to '0'
+Ownership was '1000', now it is '0'
+Group ownership was '1000', now it is '0'
+Old md5sum was: 'dde22bd9df7ce8edb047166f2cb27020'
+New md5sum is : 'd41d8cd98f00b204e9800998ecf8427e'
+Old sha1sum was: '0caf09045544b120f500cdaeffd697b723c83b93'
+New sha1sum is : 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
+
+
+** Alert 1696617223.1461: mail  - ossec,syscheck,
+2023 Oct 06 20:33:43 fedora->syscheck
+Rule: 550 (level 7) -> 'Integrity checksum changed.'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0020'
 Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
 New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
@@ -26,10 +44,10 @@ Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
 New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
-** Alert 1696458769.1110: mail  - ossec,syscheck,
-2023 Oct 05 00:32:49 fedora->syscheck
+** Alert 1696617253.1941: mail  - ossec,syscheck,
+2023 Oct 06 20:34:13 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0089'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0252'
 Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
 New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
@@ -37,10 +55,10 @@ Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
 New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
-** Alert 1696458795.1590: mail  - ossec,syscheck,
-2023 Oct 05 00:33:15 fedora->syscheck
+** Alert 1696617281.2421: mail  - ossec,syscheck,
+2023 Oct 06 20:34:41 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0273'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0466'
 Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
 New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
@@ -48,10 +66,10 @@ Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
 New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
-** Alert 1696458826.2070: mail  - ossec,syscheck,
-2023 Oct 05 00:33:46 fedora->syscheck
+** Alert 1696617297.2901: mail  - ossec,syscheck,
+2023 Oct 06 20:34:57 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0503'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0583'
 Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
 New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'
@@ -59,10 +77,10 @@ Old sha1sum was: 'da39a3ee5e6b4b0d3255bfef95601890afd80709'
 New sha1sum is : '1922fd2d87e2cce2fc295c4736034d7a553333fc'
 
 
-** Alert 1696458846.2550: mail  - ossec,syscheck,
-2023 Oct 05 00:34:06 fedora->syscheck
+** Alert 1696617315.3381: mail  - ossec,syscheck,
+2023 Oct 06 20:35:15 fedora->syscheck
 Rule: 550 (level 7) -> 'Integrity checksum changed.'
-Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0653'
+Integrity checksum changed for: '/home/razaloc/3/ssii/SSII-ST7/carpeta/archivo-0708'
 Size changed from '0' to '79'
 Old md5sum was: 'd41d8cd98f00b204e9800998ecf8427e'
 New md5sum is : '17f0577e3169e9b6271ccfa95123e44e'

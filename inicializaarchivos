@@ -2,5 +2,5 @@
 
 mkdir carpeta
 cd carpeta
-touch archivo-{0001..1000}
+touch archivo-{0001..2000}
 cd ..

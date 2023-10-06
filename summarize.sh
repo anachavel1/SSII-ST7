@@ -1,19 +1,16 @@
 #!/bin/bash
 
-# Verifica que se haya proporcionado el mes como argumento
+# Verifica si se proporcionó un argumento, si no, usa el mes actual
 if [ -z "$1" ]; then
-    echo "Error: Debes proporcionar el mes como argumento (número del 1 al 12)."
-    exit 1
-fi
-
-# Verifica que el mes esté en el rango de 1 a 12
-if [ "$1" -lt 1 ] || [ "$1" -gt 12 ]; then
-    echo "Error: El mes debe estar en el rango del 1 al 12."
-    exit 1
+    current_month=$(date +"%m")
+    echo "No se proporcionó un mes como argumento. Usando el mes actual: $current_month"
+    month="$current_month"
+else
+    month="$1"
 fi
 
 # Obtiene el nombre del mes en formato abreviado (por ejemplo, "Oct" para octubre)
-month=$(date -d "$1/1" "+%b")
+month=$(date -d "$1" "+%b")
 
 # Convierte la primera letra del mes a mayúsculas
 month=$(echo "$month" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')

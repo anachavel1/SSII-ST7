@@ -31,8 +31,7 @@ def transaccion(origen, destino, cantidad):
         # Desde Python3.6 existe el módulo secrets
         # Con él podemos generar numeros aleatorios criptograficamente fuertes aptos para gestionar autenticación, contraseñas o tokens de seguridad.
         nonce = secrets.token_urlsafe()
-
-        #input("Indique la cuenta de destino (codigo + 20 dígitos)")
+        
         mensaje = nonce + origen + destino + cantidad
         #print("mensaje:"+ str(len(mensaje)) +"\n" +
         #      "nonce:" + str(len(nonce)) + "\n" +
@@ -42,7 +41,10 @@ def transaccion(origen, destino, cantidad):
         #print("EL MENSAJE ES: " + mensaje)
 
         mac = hmac.new(bytes(key_mac, 'utf-8'), bytes(mensaje, 'utf-8'), hashlib.sha256).digest()
-
+        print("Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !")
+        destino = "ES99999999999999999999"
+        cantidad = "999999".zfill(10)
+        mensaje = nonce + origen + destino + cantidad
     #with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     #    s.connect((HOST, PORT))
         s.sendall(bytes(mensaje + str(mac), 'utf-8'))
@@ -51,10 +53,6 @@ def transaccion(origen, destino, cantidad):
     print(f"Received:\n"+ data2.decode('utf-8'))
 
 
-buen_cliente1 = ("ES00000000000000000000", "ES11111111111111111111", "200")
-buen_cliente2 = ("ES00000000000000000000", "ES11111111111111111111", "200")
-buen_cliente3 = ("ES11111111111111111111", "ES22222222222222222222", "5555")
+cliente_atacado = ("ES00000000000000000000", "ES11111111111111111111", "200")
 
-transaccion(buen_cliente1[0], buen_cliente1[1], buen_cliente1[2])
-transaccion(buen_cliente2[0], buen_cliente2[1], buen_cliente2[2])
-transaccion(buen_cliente3[0], buen_cliente3[1], buen_cliente3[2])
+transaccion(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2])

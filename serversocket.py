@@ -24,8 +24,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(f"Connected by {addr}")
             #Este nivel representa cada cliente
             
-            fin_transaccion = False
-            alerta = False
             # Esta sección es la verificación de identidad de cada cliente
             while True:
                 data1 = conn.recv(1024)
@@ -65,11 +63,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 cantidad = mensaje[87:97]
             
                 # Ahora lo comparamos con el MAC recibido
-                if  hmac.compare_digest(mac, data3[97:]):
-                # str(mac) != data_str[97:] Evitamos usar esta comparación porque la otra es más segura criptograficamente
+                # print("COMPARANDO:\n" + str(mac) + "\n" + data_str[97:])
+                if str(mac) != data_str[97:] :
+                # hmac.compare_digest(mac, data3[97:]) 
+                # str(mac) != data_str[97:] Evitamos usar esta comparación porque la otra es más segura criptograficamente ??
                     #blacklist(addr)
-                    alerta = True
-                    print("Transacción no válida. Posible ataque man in the middle.")
+                    print("Transacción no válida. Posible ataque MAN IN THE MIDDLE.")
+                    conn.sendall(bytes("Transacción rechazada.",'utf-8'))
+                    break
             
 
                 #elif addr in black_list:
@@ -78,16 +79,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 # Comprueba si el nonce ya ha sido usado (evita ataque REPLAY)
                 elif nonce in nonce_storage:
                     #blacklist(addr)
-                    alerta = True
-                    print("Transacción no válida. Posible ataque replay.")
+                    print("Transacción no válida. Posible ataque REPLAY.")
+                    conn.sendall(bytes("Transacción rechazada.",'utf-8'))
+                    break
                 
                 # Comprueba que el nonce sea válido
                 else:
                     nonce_storage.add(nonce)
-                    fin_transaccion = True
-                    print("Transacción válida. Muchas gracias.")
-                conn.sendall(data3)
-                if fin_transaccion or alerta:
+                    print("Transacción válida: \n" + str(data3) + "\n")
+                
+                    conn.sendall(bytes("Transferidos " + cantidad.lstrip('0') + "€ " + " desde " + origen + " a " + destino + "\n" +
+                                   "Transacción válida. Muchas gracias.",'utf-8'))
                     break
                     
             

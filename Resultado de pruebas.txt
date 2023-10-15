@@ -1,0 +1,78 @@
+┌──(thyelx㉿kali)-[~/PAI/PAI2/SSII-ST7]
+└─$ ./prueba.sh
+
+Prueba iniciada
+
+
+Sevidor iniciado
+
+
+Prueba 3 clientes normales
+
+Connected by ('127.0.0.1', 57468)
+Recibida primera parte de la clave pública
+Recibida segunda parte de la clave pública
+Transacción válida: 
+b"9SbapPpL4ISvHouNVBcmCwBSz8Hux8aQ3xUsSH2gwTcES00000000000000000000ES111111111111111111110000000200b'\\x8e\\xcc\\xb2Z\\xb6OzQ\\x10\\x8d\\xdb\\x85\\x88\\xa2\\xd9\\xb15\\xc1\\xf6\\xa5*\\x18\\xc5\\x9f\\xa4\\x9a3W\\x1fJ\\xd9\\xe4'"
+
+Received:
+Transferidos 200€  desde ES00000000000000000000 a ES11111111111111111111
+Transacción válida. Muchas gracias.
+Connected by ('127.0.0.1', 57476)
+Recibida primera parte de la clave pública
+Recibida segunda parte de la clave pública
+Transacción válida: 
+b'As0gs3Z9kFFPankAqlMr-eqY-wFXe_QxwsjOQUfPeocES00000000000000000000ES111111111111111111110000000200b\'\\x82\\xcd\\x0e\\xbe#\\x1b\\x01"s:\\x10j\\xd44]\\xa7\\r\\xca\\x93\\xea\\x8b\\x81o0\\xd4\\xdb\\xd4\\x1c<\\xccW\\x88\''
+
+Received:
+Transferidos 200€  desde ES00000000000000000000 a ES11111111111111111111
+Transacción válida. Muchas gracias.
+Connected by ('127.0.0.1', 57480)
+Recibida primera parte de la clave pública
+Recibida segunda parte de la clave pública
+Transacción válida: 
+b'Uaktbf5I3I2jgEz8ESJgu-U-0neMqLYw4gP7DDZpS1MES11111111111111111111ES222222222222222222220000005555b\'\\x97#\\xf3>\\xcd\\xd1\\xbf\\xaf^\\xd5"bnl#\\xb6\\xad\\xdf\\x91E\\xd5P\\xf8\\x7f\\xecy\\x83\\xa2\\xb6\\xbb\\x85\\xbd\''
+
+Received:
+Transferidos 5555€  desde ES11111111111111111111 a ES22222222222222222222
+Transacción válida. Muchas gracias.                                                                                
+                                                                                                                   
+Prueba ataque man in the middle:                                                                                   
+                                                                                                                   
+Connected by ('127.0.0.1', 51562)                                                                                  
+Recibida primera parte de la clave pública                                                                         
+Recibida segunda parte de la clave pública                                                                         
+Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !                                                         
+Transacción no válida. Posible ataque MAN IN THE MIDDLE.                                                           
+Received:                                                                                                          
+Transacción rechazada.                                                                                             
+                                                                                                                   
+Prueba ataque replay:
+
+
+┌──(thyelx㉿kali)-[~/PAI/PAI2/SSII-ST7]
+└─$ Connected by ('127.0.0.1', 51566)                                                                                                                                                                                                       
+Recibida primera parte de la clave pública
+Recibida segunda parte de la clave pública
+Primera petición (legítima)
+Transacción válida: 
+b"fm3hNwDsWA3KH1niwPERBW3ibBsKiVIxUVHhackoKx4ES00000000000000000000ES111111111111111111110000000200b']\\x05\\x83\\xaf\\xcc\\xe9{\\xcb\\xdf?\\xa0Yp\\x8a\\xe1\\x03\\x11g\\x01\\x05qpM\\x1al\\xe65\\xdf\\xa7\\xcf\\xad\\xb4'"
+
+Received:
+Transferidos 200€  desde ES00000000000000000000 a ES11111111111111111111
+Transacción válida. Muchas gracias.
+¡ Ataque REPLAY iniciado !
+¡ Ataque 1 !
+Connected by ('127.0.0.1', 47346)
+Recibida primera parte de la clave pública
+Recibida segunda parte de la clave pública
+Transacción no válida. Posible ataque REPLAY.
+Received:
+Transacción rechazada.
+¡ Ataque 2 !
+Connected by ('127.0.0.1', 47354)
+Recibida primera parte de la clave pública
+Recibida segunda parte de la clave pública
+Transacción no válida. Posible ataque REPLAY.
+Received:
+Transacción rechazada.

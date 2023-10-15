@@ -12,6 +12,12 @@ Servidor (Script Python)
 Ejecución de pruebas (Script Bash)
 ## Cómo desplegar pruebas
 
+### attackmaninmiddle.py
+Script que realiza un ataque Man-in-the-middle.
+
+### attackreplay.py
+Script que realiza un ataque replay
+
 ### Automatico (Linux)
 Ejecutar pruebas.sh, eseescript ejecutará todos los scripts ordenadamente para hacer las pruebas. 
 

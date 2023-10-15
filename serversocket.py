@@ -64,7 +64,15 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             
                 # Ahora lo comparamos con el MAC recibido
                 # print("COMPARANDO:\n" + str(mac) + "\n" + data_str[97:])
-                if str(mac) != data_str[97:] :
+                
+                # Comprueba si el nonce ya ha sido usado (evita ataque REPLAY)
+                if nonce in nonce_storage:
+                    #blacklist(addr)
+                    print("Transacción no válida. Posible ataque REPLAY.")
+                    conn.sendall(bytes("Transacción rechazada.",'utf-8'))
+                    break
+                
+                elif str(mac) != data_str[97:] :
                 # hmac.compare_digest(mac, data3[97:]) 
                 # str(mac) != data_str[97:] Evitamos usar esta comparación porque la otra es más segura criptograficamente ??
                     #blacklist(addr)
@@ -72,16 +80,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     conn.sendall(bytes("Transacción rechazada.",'utf-8'))
                     break
             
-
                 #elif addr in black_list:
                     #print("Lo sentimos su direción se encuentra inhabilitada para hacer transferencias pongase en contacto con los administradores.")
             
-                # Comprueba si el nonce ya ha sido usado (evita ataque REPLAY)
-                elif nonce in nonce_storage:
-                    #blacklist(addr)
-                    print("Transacción no válida. Posible ataque REPLAY.")
-                    conn.sendall(bytes("Transacción rechazada.",'utf-8'))
-                    break
+                
                 
                 # Comprueba que el nonce sea válido
                 else:

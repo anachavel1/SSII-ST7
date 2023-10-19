@@ -1,0 +1,168 @@
+Prueba iniciada
+
+
+Sevidor iniciado
+
+
+Prueba 3 clientes normales
+
+Connected by ('127.0.0.1', 37912)
+Transacción válida: 
+b'Yt0AQID3n_-Z0uvgc-r_62eR9n2L2AoKUZ06X4sDhdMES00000000000000000000ES111111111111111111110000000200b\'\\xadD\\xa5q\\xbc\\x91\\xa5jt{1\\xd0\\x97D\\x1b\\x9c%\\xccP\\x9cj&?\\xb0\\x01\\xfe"d\\xf3<-\\xf1\''
+
+Recibido:
+Aceptada 
+Connected by ('127.0.0.1', 37926)
+Transacción válida: 
+b"A2f-lljbCoseyTse7mEzOh-t2Y2bsq-A1DdfD6nEHysES00000000000000000000ES111111111111111111110000000200b'\\xd3\\xde*\\xcd2\\x9e\\xdd\\xdce\\xa3\\xa2\\xb4\\xcf_\\x98\\xe0B\\x95\\xb0\\xec>/\\xdf\\x13.\\xea\\xa9\\x01\\xbc:\\xafU'"
+
+Recibido:
+Aceptada 
+Connected by ('127.0.0.1', 37928)
+Transacción válida: 
+b"BWJ4ou0ruqxbKW-PXLMW7qCK_fRjDfubGhA2Q1hZJe4ES11111111111111111111ES222222222222222222220000005555b'\\xee\\xc27U\\x04\\xc2}[v\\xdf\\xc2\\x0b\\xcbgT\\xbcq9\\xd7\\xd7d\\t\\xfb\\n\\xc0\\xef2\\x8etd\\x1a@'"
+
+Recibido:
+Aceptada 
+
+Prueba ataque man in the middle:
+
+Connected by ('127.0.0.1', 57676)
+Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !
+Transacción no válida. Posible ataque MAN IN THE MIDDLE.
+Received:
+VE7GzOkxiYi9NxgJU5h8t3RZ0vXYQHuswotMcCu9190Rechazada.b'\xf6\x94r\xa5WJ\x06\xbc\xc1\xc8.\x13\xa6\x98o\xfbq\x936\x82\x83\xe7RF\xc5\xde\xcb\xd3\xc7\x06\xcc\x14'
+Connected by ('127.0.0.1', 57688)
+Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !
+Transacción no válida. Posible ataque MAN IN THE MIDDLE.
+Received:
+jQw6_rwIUOIsIGLmKDDyVXR8sIx85ouop1vMdt5YL-oRechazada.b"\xe1\xcd\xc9\xc0\x99r\xe1\x1d\x8dK&\xd3\xab\x7f?Qq\xf5'4\x12]Gdw\xc5t\x94<6]e"
+Connected by ('127.0.0.1', 57692)
+Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !
+Transacción no válida. Posible ataque MAN IN THE MIDDLE.
+Received:
+TpCabKw0QhQVFOPntlxfj_f7K4dOcvO3TPW3tRwdCCcRechazada.b'\xe3.\xebj\xab\x11&\x968\xfa\xf2\xb4\xa8\xdd\x0b\xeaA\xebG\xf9\x88\x9f\x03\xb3\xbe\x81\xbb\x95|\xa9\x13\r'
+Connected by ('127.0.0.1', 57696)
+Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !
+Transacción no válida. Posible ataque MAN IN THE MIDDLE.
+Received:
+dj75Er3edU_9dmVvSVmfQXVDlYiJnajZ8ksRaOEj8NQRechazada.b'\xf4p\xd8\xca+\x1a\x02\xf4\x15;}9\x9c\x02E\xc3\xa3T\xf5\xf7\x13\xfc\xb0\xf7\xcd\xcf\xb8\xe9L\xe2\xa7\xdf'
+Connected by ('127.0.0.1', 57712)
+
+Prueba ataque replay:
+
+[razaloc@fedora SSII-ST7]$ Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !
+Transacción no válida. Posible ataque MAN IN THE MIDDLE.
+Connected by ('127.0.0.1', 57716)
+Received:
+3lHwVC_UtIzBdNixlGuwy1a7LZx8LfF4jYpkkHw3kTsRechazada.b'\xfb\xb7\x15K\xbcZga\xe8\xe99\xbb\x02\xd9\x00[\xf6\xad\xe27\xb7\xbe\\_\x9a\xde\xb8\x9bJQJd'
+Primera petición (legítima)
+Received:
+HnnpEAMRMT0eZVRV4uhLCmFjkfLLhM1Mdy5GqRLVcOYAceptada b'\x05\xc6\x13\xef\xeb\x13\xedq\xc9\xc2Z|hwJMK\x10\xc2\xe4\x9f\x1b39\xc6\xfb\xf6\x18\xbb\xa4\xc8\xe4'Transacción válida: 
+b"C3hCH56q6aqX8ltipSYxNWUHYFsVEBrXUrrgrUvqQp4ES00000000000000000000ES111111111111111111110000000200b'\\xc1\\xb1\\xc4[+\\xe5\\x12L\\x91\\xe6\\x83\\xba:\\xff;\\x0bf\\xcc\\x97\\n\\x08 6L\\x870\\x04\\xfd\\xf9\\x18X\\x0f'"
+
+
+¡ Ataque REPLAY iniciado !
+¡ Ataque 1 !
+Connected by ('127.0.0.1', 33488)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+G8x0hPRdQjqQFpVCSdvhH7GfDwgwUYKdTIIvGyI75HgRechazada.b'\x15s\xf4\xe8\x1a\xc7\x82?\x0e\xe3\x81\x9f\xdf\x81rS\xc2BJ\x13,8 J\x15\xeaOw\x0f\x8f\xf3\xf0'
+¡ Ataque 2 !
+Connected by ('127.0.0.1', 33502)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+vDN3wRDCWcm1i3iNio9hZLygmcJS8OyidXPdTHirdYoRechazada.b'\x17\x93a\x80\x17t\xdci\x01\xca8\xfb\x8b\x0e\xb8\xdd{d[\x9c\xd1\x06\xec\x921#(\xf3\xe9t\xa5@'
+¡ Ataque 3 !
+Connected by ('127.0.0.1', 53922)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+VMalbsoHwkuKwfZa7UADJqLlIG52GW0e95-MMwRazOIRechazada.b'/*a\x05r\x94\x11o\xac>\xd2K\xe5^\xba\x93\xc10O@\xcd\xf6\xd2\x92j\x9f\x07\x07\xd6\x07\x14\xb7'
+¡ Ataque 4 !
+Connected by ('127.0.0.1', 53932)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+0cojTleevF1N00HjpfvBQQdrN3w-VdoaTH5M_sfuhNcRechazada.b'U\xa5(\x1cn%\x0c\xb0\xfc\xd3\xb7\xc8\xdf\xee\xbd\xb5^\xee\x84\x95\x06\xa1u\x9b\x11\xdd;\xbd\x93\xb8\xfe\xdf'
+¡ Ataque 5 !
+Connected by ('127.0.0.1', 42866)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+_EougaHwQp2ytt-0T0Ji4rSDK_U7Uf6wu0neRSiFBgERechazada.b'\xe9\x06Y\xe9\xf8l\xb6\x80\xd7JTT\xbeW2\x00\x105#\x19\xad\xfa4\xbaN\x19\xe5\xdb\x9e_-r'
+Connected by ('127.0.0.1', 42870)
+Primera petición (legítima)
+Transacción válida: 
+b"JHHd4RUnW88sOGtvcYNL3oG-F8Cip0ZiD2-qn6q2T5EES00000000000000000000ES111111111111111111110000000200b'\\xb4\\xec\\xfc\\x18$\\xab\\xe1l\\xbb$\\xbcY+\\xd6\\x82T\\xab4\\xbe>\\r\\xb4Yw\\xb3F!\\x8c\\xd9\\n \\xe3'"
+
+Received:
+vv41bG6I7DPdWziv-8r2LmtHvXMfD01j_yxvZpyeoQcAceptada b'P\xc5d\xe5\xe7\x14Y4#\x81\xae\xbft\xc8c\xfc>~\xfej8\xa1T\xde\xd7\xeb\xee?vl\xaeP'
+¡ Ataque REPLAY iniciado !
+¡ Ataque 1 !
+Connected by ('127.0.0.1', 57126)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+OVt_Oh6S76jkgesaBEoVwALdd8OM7y5Uhfb3bEQ3qd0Rechazada.b"\x0f\xee\xd9\x13M\xc5u\x8e'X{\xad\xbc\xbd$+\x9cNa?\xc0\x89\xa8I\t \xa0\xd9\x99\x00V\x07"
+¡ Ataque 2 !
+Connected by ('127.0.0.1', 57134)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+7sEIr9XuLil4DKMd1norjxnvYiz5czTH8IdYu9g5-HsRechazada.b'\xc6\x1f}B\xae&\x8c\x9cO[\xe4\xa1\x05\x00\xb4\xd1%<]m4G\xda\xa1\xca\xbb\xf7\xf5w6\xd1\x06'
+¡ Ataque 3 !
+Connected by ('127.0.0.1', 39974)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+YIL88_ptdfyei2vR1TXk28488n6H9nHuHIQGNte4jNERechazada.b'xI\x10E\x99\xb2\xf4\xef\x88@X\xdb\xafz\x9d\x15\xc0\x89&s\x05\xe6\x1b{\n(w\xefS\x7f \xf2'
+¡ Ataque 4 !
+Connected by ('127.0.0.1', 39976)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+vnlGt7P6SVcUP4TEqkQptNYlv0FADKlF-T7HcCEKgKMRechazada.b'6\xcb\xfb\xb0\x91\xb0T\x9a\xc6\xf5A\xa6)\xfad\x15;(\xf2tg\x10\xe3\x82@:\xf8\xec\xb6\xf3;\x9f'
+Connected by ('127.0.0.1', 47820)
+Primera petición (legítima)
+Transacción válida: 
+b'2x_GO5BoFSnlb1k4KBSXdgoJU-NKNisbHcaccTYbmhoES00000000000000000000ES111111111111111111110000000200b"\\xa1+\\x95\\xb6\\x07\\xef2\\x18\\x15f\\x02\'<F\\xfb\\xeb\\xa3\\x8aE\\x18H\\xb0\\xbbh,\\x19\\x89\\x10M\\xa6\\xc9\\x85"'
+
+Received:
+rUXljBjqqi041up3OmVXbMmmObjzt-iD0DYXx4tAk9sAceptada b'\xc9)\xb6~t?]\xb6\x17{\xc3\xe2\xd0\xc8C/\xfe\xa1\x02~!H\xb2x5k\x18\nU\xddCi'
+¡ Ataque REPLAY iniciado !
+¡ Ataque 1 !
+Connected by ('127.0.0.1', 47834)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+0uZPYFNF1gbknRsE4pm5nc4IXxpPtDYsE8ruoJEefe0Rechazada.b'>\xbag6:[\xa8\x1a\x98\xa92.4\xd4\xd2\xf9j\xcck\xa5A?\xc2d\x1f\xb3\xe0\xe9\xc1\x15\x87d'
+¡ Ataque 2 !
+Connected by ('127.0.0.1', 47848)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+RX23iyfLSzUylmZB6GQuHwWIm44Qrg74wAPtOXFUUt4Rechazada.b'\xa3\xdf\x11\xff\xdd\xbb\xa2G|\xc9\x91(\xc0\xd4Vf\xd6\xc5\xa3\xd9\x83\xf1jG`\x0c\x83\xdd\xa1\xd0a*'
+Connected by ('127.0.0.1', 36720)
+Primera petición (legítima)
+Transacción válida: 
+b'by_YAKbZBdJjw1WkgQKW3vo89wpmcEtzUPIu5Of0SzkES00000000000000000111ES111111111111111112220001220000b"8\\xb5\\x1b\\xdb\\xf8\\xa2\\xa9\\xce\\xac<`a\\x9b3T\\xbd\\x10\\x92_\\x16`\\xa5\\x1d[\\x1b\'\\xfco\\x19A\\xdc\\xb4"'
+
+Received:
+nb8eg8xxh1S3h6zo8CBqhWkaBenhy725yzyAwimEACkAceptada b'\xea(X\xfc\x95\x042\x02\x9cPS\x8eVU\x88\xbd\x96*C\xe0\x15\xd82\xb7\x92\xad\xde0?\xdd`\x7f'
+¡ Ataque REPLAY iniciado !
+¡ Ataque 1 !
+Connected by ('127.0.0.1', 36722)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+fUckzwadPLbzgdcoC0dOHs-H-6DEY_tdu6lEMVCH4IcRechazada.b'\x1b\xc87)\xc6\xc6\x18;\xa8[\x82\xa2y\xcc]\xa2\xcf\x98\xe3\x8d\xb6=\xf2e\xd5\x8e)\xff\xbf\xd7i\xb5'
+Connected by ('127.0.0.1', 41246)
+Primera petición (legítima)
+Transacción válida: 
+b"ImPLGompnZaIfQVxG5oWGs8ux0QjExE-4CqrCN0eqqEES00000000000000000111ES111111111111111112220001220000b'\\xa4[\\xb6V\\x9a\\xbdq\\xf2\\x80\\xb5p!\\xd8\\x9a\\xed\\xd8\\xf1e@\\x8a\\xa1\\xbbUn\\x8f\\xe2\\x15\\xccr\\x8fD\\xe8'"
+
+Received:
+_9FWT-3Nhj94QtZ2mxIbRJC6ALm_PUefy2WVT1cSy6YAceptada b'#\xa2b\x89[\xd8n\xcd\x01,f\x8f\xe6\xc3L\x8c\xb4F\x07\xf8\xfa2,\xa6\x17\xa86\xce\x97\x8b)\xc5'
+¡ Ataque REPLAY iniciado !
+¡ Ataque 1 !
+Connected by ('127.0.0.1', 41248)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+MbJPc8GU3x7bd6RkikLMJate1Pdoab2RhX-MU7aS-hURechazada.b'\xfa\xdbJ\x91Y=\x9d\x1f2\x05j\xd2\xfbT]\xb9aG\xbf-\x17\xf3\xc8}\xeb\xbb\x92\xd5\x7fR\xde\xc8'
+¡ Ataque 2 !
+Connected by ('127.0.0.1', 57182)
+Transacción no válida. Posible ataque REPLAY.
+Received:
+xKOfVo0lwMDAutrCB-qVTC2FIe0zxuZ5Y0niYcWHQaYRechazada.b'\xc1\xcd\xe6\xfc\xa1\x10\xa6\xa8_\x93wx 6\xd0\xc1<\xe8\xac\xf8\xbe\xab|\x0f\xb6S\xb6\xc5\x03\x05(\x02'
+

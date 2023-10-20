@@ -37,7 +37,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # Esta sección es la verificación de identidad de cada cliente
             while True:
                 data1 = conn.recv(1024)
-                #print("Recibida primera parte de la clave pública")
                 if not data1:
                     continue
                 key_mac = secrets.token_urlsafe()
@@ -45,7 +44,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 break
             while True:
                 data2 = conn.recv(1024)
-                #print("Recibida segunda parte de la clave pública")
                 if not data2:
                     continue
                 key_mac = secrets.token_urlsafe()
@@ -64,7 +62,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                             
                 # Primero calculamos el MAC del mensaje 
                 mensaje = data_str[0:97]
-                #print("EL MENSAJE ES: " + mensaje)
                 mac = hmac.new(bytes(key_mac, 'utf-8'), bytes(mensaje, 'utf-8'), hashlib.sha256).digest()
                 # Tomamos las distintas partes del mensaje
                 nonce_recibido = mensaje[0:43]
@@ -76,7 +73,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 nonce_local = secrets.token_urlsafe()
                 mac_local = hmac.new(bytes(key_mac, 'utf-8'), bytes(nonce_local + mensaje_local, 'utf-8'), hashlib.sha256).digest()
                 conn.sendall(bytes(nonce_local + mensaje_local + str(mac_local) , 'utf-8'))
-                #print("Envia:\n"+str(mac_local)+"\n"+nonce_local+"\n"+mensaje_local)
                 if alerta:
                     break
                 print("Transacción válida: \n" + str(data3) + "\n")

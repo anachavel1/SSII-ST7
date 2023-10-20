@@ -7,7 +7,7 @@ HOST = "127.0.0.1"  # The server's hostname or IP address
 PORT = 3030  # The port used by the server
 
 
-def transaccion(origen, destino, cantidad):
+def attackMiM(origen, destino, cantidad, destino_falso, cantidad_falsa):
     # Generamos clave privada y publica para pedir con ella la key
     publicKey, privateKey = rsa.newkeys(512)
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -42,9 +42,8 @@ def transaccion(origen, destino, cantidad):
 
         mac = hmac.new(bytes(key_mac, 'utf-8'), bytes(mensaje, 'utf-8'), hashlib.sha256).digest()
         print("Mensaje interceptado ¡ Ataque MAN IN THE MIDDLE iniciado !")
-        destino = "ES99999999999999999999"
-        cantidad = "999999".zfill(10)
-        mensaje = nonce + origen + destino + cantidad
+        cantidad_falsa = cantidad_falsa.zfill(10)
+        mensaje = nonce + origen + destino_falso + cantidad_falsa
     #with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     #    s.connect((HOST, PORT))
         s.sendall(bytes(mensaje + str(mac), 'utf-8'))
@@ -55,4 +54,8 @@ def transaccion(origen, destino, cantidad):
 
 cliente_atacado = ("ES00000000000000000000", "ES11111111111111111111", "200")
 
-transaccion(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2])
+attackMiM(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], "ES99999999999999999999", "999999")
+attackMiM(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], "ES99999999999999999495", "199000")
+attackMiM(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], "ES99999999999999999284", "799900")
+attackMiM(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], "ES99999999944999999495", "239000")
+attackMiM(cliente_atacado[0], cliente_atacado[1], cliente_atacado[2], "ES99999999999911999284", "569900")

@@ -4,7 +4,7 @@ import socket
 import secrets, hmac, hashlib, rsa, time
 
 HOST = "127.0.0.1"  # The server's hostname or IP address
-PORT = 3031  # The port used by the server
+PORT = 3030  # The port used by the server
 
 nonce_storage = set()
 

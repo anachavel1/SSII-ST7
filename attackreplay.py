@@ -47,7 +47,7 @@ def attack_replay(origen, destino, cantidad, numero_ataques):
         print("Primera petición (legítima)")
         s.sendall(bytes(mensaje + str(mac), 'utf-8'))
         data2 = s.recv(1024)
-        print(f"Received:\n"+ data2.decode('utf-8'))
+        print(f"Received:\n"+ data2.decode('utf-8')[43:52])
         time.sleep(3)
 
     print("¡ Ataque REPLAY iniciado !")
@@ -66,7 +66,7 @@ def attack_replay(origen, destino, cantidad, numero_ataques):
             s.recv(1024)
             s.sendall(bytes(mensaje + str(mac), 'utf-8'))
             data2 = s.recv(1024)
-            print(f"Received:\n"+ data2.decode('utf-8'))
+            print(f"Received:\n"+ data2.decode('utf-8')[43:52])
             time.sleep(3)
 
 

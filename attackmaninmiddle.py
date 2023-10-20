@@ -49,7 +49,7 @@ def attackMiM(origen, destino, cantidad, destino_falso, cantidad_falsa):
         s.sendall(bytes(mensaje + str(mac), 'utf-8'))
         data2 = s.recv(1024)
 
-    print(f"Received:\n"+ data2.decode('utf-8'))
+    print(f"Received:\n"+ data2.decode('utf-8')[43:52])
 
 
 cliente_atacado = ("ES00000000000000000000", "ES11111111111111111111", "200")

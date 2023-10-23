@@ -1,6 +1,0 @@
-#!/bin/bash
-
-mkdir carpeta
-cd carpeta
-touch archivo-{0001..1000}
-cd ..

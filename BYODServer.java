@@ -5,46 +5,49 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import javax.net.ssl.*;
 
-public class BYODServer {
+public class BYODServer3 {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
+        SSLServerSocketFactory factory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+        SSLServerSocket serverSocket = (SSLServerSocket) factory.createServerSocket(7070);
 
-		try {
-			SSLServerSocketFactory factory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
-			SSLServerSocket serverSocket = (SSLServerSocket) factory.createServerSocket(3343);
+        System.err.println("Servidor iniciado. Esperando conexiones...");
 
-			// wait for client connection and check login information
+        // Crear un pool de hilos para manejar las conexiones entrantes.
+        ExecutorService executorService = Executors.newFixedThreadPool(300);
 
-			System.err.println("Esperando conexiones del cliente ....");
-			SSLSocket socket = (SSLSocket) serverSocket.accept();
+        while (true) {
+            final SSLSocket socket = (SSLSocket) serverSocket.accept();
 
-			// abre un BufferedReader para leer los datos del cliente
-			BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			String msg = input.readLine();
+            // Usar un hilo del pool para manejar la conexión.
+            executorService.execute(() -> {
+                try {
+                    handleConnection(socket);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+    }
 
-			// abre un PrintWriter para enviar datos al cliente
-			PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+    static void handleConnection(SSLSocket socket) throws IOException {
+        BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        String msg = input.readLine();
 
-			if (msg.equals("Hola")) {
-				output.println("Welcome to the Server");
-			} else {
-				output.println("Incorrect message.");
-			}
+        PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-			output.close();
-			input.close();
-			socket.close();
+        if (msg != null && msg.equals("Hola")) {
+            output.println("Bienvenido al servidor");
+        } else {
+            output.println("Mensaje incorrecto.");
+        }
 
-		} // end try
-
-		// handle exception communicating with client
-		catch (IOException ioException) {
-			ioException.printStackTrace();
-		}
-
-	}
-
+        output.close();
+        input.close();
+        socket.close();
+    }
 }

@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.net.ssl.*;
 
-public class BYODServer3 {
+public class BYODServer {
 
     private static ServerSocket serverSocket;
 

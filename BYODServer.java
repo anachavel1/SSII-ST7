@@ -11,13 +11,11 @@ import javax.net.ssl.*;
 
 public class BYODServer {
 
-    private static ServerSocket serverSocket;
-
     public static void main(String[] args) throws IOException {
         SSLServerSocketFactory factory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
-        serverSocket = (SSLServerSocket) factory.createServerSocket(7070);
+        SSLServerSocket serverSocket = (SSLServerSocket) factory.createServerSocket(7070);
 
-        System.err.println("\nServidor iniciado. Esperando conexiones...");
+        System.err.println("Servidor iniciado. Esperando conexiones...");
 
         // Crear un pool de hilos para manejar las conexiones entrantes.
         ExecutorService executorService = Executors.newFixedThreadPool(300);
@@ -37,22 +35,12 @@ public class BYODServer {
     }
 
     static void handleConnection(SSLSocket socket) throws IOException {
-        //enCiphersuite indicara las cipherSuites que queremos usar
-        String[] enCiphersuite = ((SSLServerSocket) serverSocket).getEnabledCipherSuites();
-		((SSLServerSocket) serverSocket).setEnabledCipherSuites(enCiphersuite);
-		
-		System.out.println("Enabled ciphersuites are: ");
-		for (String cs: Arrays.asList(enCiphersuite)) {
-			System.out.println("\t" + cs);
-		}
-        
         BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         String msg = input.readLine();
-        System.err.println(msg);
 
         PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-        if (msg != null && msg.contains("/")) {
+        if (msg != null && msg.equals("Hola")) {
             output.println("Bienvenido al servidor");
         } else {
             output.println("Mensaje incorrecto.");

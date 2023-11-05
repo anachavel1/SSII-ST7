@@ -22,19 +22,24 @@ public class BYODCliente {
 			// Crea un PrintWriter para enviar el mensaje al servidor
 			PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-			// Ventana para ingresar un mensaje
-			String msg = JOptionPane.showInputDialog(null, "Introduzca su mensaje: ");
+//			// Ventana para ingresar un mensaje
+//			String msg = JOptionPane.showInputDialog(null, "Introduzca su mensaje: ");
+			
+			// Modifica el mensaje a "usuario/contrasena"
+            String msg = "usuario/contrasena";
+            
 			// Envía el mensaje al servidor --> printLn()
 			output.println(msg);
 			// .flush() => se asegura me enviar a través de la conexión de red los datos pendientes
 			output.flush();
-
+            
+			
 			// Lee la respuesta del servidor
 			String response = input.readLine();
 			System.out.println("Respuesta del servidor: " + response);
 
 			// Muestra la respuesta al usuario
-            JOptionPane.showMessageDialog(null, "Respuesta del servidor: " + response);
+//            JOptionPane.showMessageDialog(null, "Respuesta del servidor: " + response);
             
 			// Cierra los flujos y el socket
 			output.close();

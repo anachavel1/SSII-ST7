@@ -58,7 +58,7 @@ public class BYODServer {
 
         PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-        if (msg != null && msg.equals("Hola")) {
+        if (msg != null && msg.contains("/")) {
             output.println("Bienvenido al servidor");
         } else {
             output.println("Mensaje incorrecto.");

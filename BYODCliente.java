@@ -16,6 +16,10 @@ public class BYODCliente {
 			SSLSocketFactory factory = sslContext.getSocketFactory();
 			SSLSocket socket = (SSLSocket) factory.createSocket("localhost", 7070);
 
+			// Configura la ciphersuite deseada
+            String[] enabledCipherSuites = { "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384" };
+            socket.setEnabledCipherSuites(enabledCipherSuites);
+            
 			// Crea un BufferedReader para leer la respuesta del servidor
 			BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 

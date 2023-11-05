@@ -8,5 +8,5 @@ Cliente (Script Java)
 #### serversocket.java
 Servidor (Script Java)
 
-### Prueba_Client_300_hilos.java
+#### Prueba_Client_300_hilos.java
 Prueba para 300 conexiones simultáneas de usuarios

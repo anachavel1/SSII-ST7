@@ -10,13 +10,14 @@ import java.util.concurrent.Executors;
 
 public class BYODServer {
 
+    static String keystore = System.getProperty("user.home") + "/3/ssii/SSII-ST7/keystore.jks";
+    static char[] passphrase = "000000".toCharArray();
+
     public static void main(String[] args) {
         try {
             SSLContext sslContext = SSLContext.getInstance("TLSv1.3");
-            
-            String keystoreFile = System.getProperty("user.home") + "/Desktop/cositas.jks";
+            String keystoreFile = keystore;
             KeyStore keyStore = KeyStore.getInstance("JKS");
-            char[] passphrase = "123456".toCharArray();
             keyStore.load(new FileInputStream(keystoreFile), passphrase);
 
             KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("SunX509");

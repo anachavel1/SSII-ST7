@@ -3,7 +3,10 @@ PAI3 INTERCAMBIO DE INFORMACIÓN ENTRE UN CLIENTE Y UN SERVIDOR USANDO EL PROTOC
 
 ## Descripción de archivos
 #### BYODCliente.java
-Reprensentación del Cliente (Script Java)
+Cliente (Script Java)
 
 #### serversocket.java
-Representación del Servidor (Script Java)
+Servidor (Script Java)
+
+### Prueba_Client_300_hilos.java
+Prueba para 300 conexiones simultáneas de usuarios

@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,9 +41,20 @@ public class MainActivity extends AppCompatActivity {
     private void showDialog() throws Resources.NotFoundException {
         CheckBox sabanas = (CheckBox) findViewById(R.id.checkBox_sabanas);
 
+        EditText ncamas = (EditText) findViewById(R.id.ncamas);
+        EditText nmesas = (EditText) findViewById(R.id.nmesas);
+        EditText nsillas = (EditText) findViewById(R.id.nsillas);
+        EditText nsillones = (EditText) findViewById(R.id.nsillones);
+
+        Integer camas = Integer.valueOf(ncamas.getText().toString());
+        Integer mesas = Integer.valueOf(nmesas.getText().toString());
+        Integer sillas = Integer.valueOf(nsillas.getText().toString());
+        Integer sillones = Integer.valueOf(nsillones.getText().toString());
+
+
         if (!sabanas.isChecked()) {
             // Mostramos un mensaje emergente;
-            Toast.makeText(getApplicationContext(), "Selecciona al menos un elemento", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Selecciona una cantidad entre 0 y 300", Toast.LENGTH_SHORT).show();
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Enviar")
@@ -64,13 +76,13 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                     )
-                    .
+                            .
 
-                            setNegativeButton(android.R.string.no, null)
+                    setNegativeButton(android.R.string.no, null)
 
-                    .
+                            .
 
-                            show();
+                    show();
         }
     }
 

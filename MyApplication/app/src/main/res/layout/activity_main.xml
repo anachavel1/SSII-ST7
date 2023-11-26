@@ -5,6 +5,111 @@
     android:layout_height="match_parent"
      tools:context="com.example.myapplication.MainActivity">
 
+    <EditText
+        android:id="@+id/ncamas"
+        android:layout_width="83dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="111dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="e.g 20"/>
+
+    <TextView
+        android:id="@+id/camas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginLeft="154dp"
+        android:layout_marginTop="124dp"
+        android:text="Camas" />
+
+    <EditText
+        android:id="@+id/nmesas"
+        android:layout_width="83dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="156dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="e.g 20" />
+
+    <TextView
+        android:id="@+id/mesas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginLeft="154dp"
+        android:layout_marginTop="169dp"
+        android:text="Mesas" />
+
+    <EditText
+        android:id="@+id/nsillas"
+        android:layout_width="83dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="246dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="e.g 20"
+        />
+
+    <TextView
+        android:id="@+id/sillas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="158dp"
+        android:layout_marginLeft="158dp"
+        android:layout_marginTop="259dp"
+        android:text="Sillas" />
+
+    <EditText
+        android:id="@+id/nsillones"
+        android:layout_width="83dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="201dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="e.g 20"/>
+
+    <TextView
+        android:id="@+id/sillones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="151dp"
+        android:layout_marginLeft="151dp"
+        android:layout_marginTop="214dp"
+        android:text="Sillones" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -27,7 +132,7 @@
     <CheckBox
         android:id="@+id/checkBox_sabanas"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"

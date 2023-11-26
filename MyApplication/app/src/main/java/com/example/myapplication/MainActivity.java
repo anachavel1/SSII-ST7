@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Setup Server information
     protected static String server = "192.168.1.133";
+    //10.0.2.1
     protected static int port = 7070;
 
     @Override
@@ -39,23 +40,52 @@ public class MainActivity extends AppCompatActivity {
 
     // Creación de un cuadro de dialogo para confirmar pedido
     private void showDialog() throws Resources.NotFoundException {
-        CheckBox sabanas = (CheckBox) findViewById(R.id.checkBox_sabanas);
 
         EditText ncamas = (EditText) findViewById(R.id.ncamas);
         EditText nmesas = (EditText) findViewById(R.id.nmesas);
         EditText nsillas = (EditText) findViewById(R.id.nsillas);
         EditText nsillones = (EditText) findViewById(R.id.nsillones);
 
-        Integer camas = Integer.valueOf(ncamas.getText().toString());
-        Integer mesas = Integer.valueOf(nmesas.getText().toString());
-        Integer sillas = Integer.valueOf(nsillas.getText().toString());
-        Integer sillones = Integer.valueOf(nsillones.getText().toString());
+
+        String txcamas = ncamas.getText().toString();
+        String txmesas = nmesas.getText().toString();
+        String txsillas = nsillas.getText().toString();
+        String txsillones = nsillones.getText().toString();
+
+        if (txcamas.matches("")) {
+            txcamas = "0";
+        }
+        if (txmesas.matches("")) {
+            txmesas = "0";
+        }
+        if (txsillas.matches("")) {
+            txsillas = "0";
+        }
+        if (txsillones.matches("")) {
+            txsillones = "0";
+        }
+
+        Integer camas = Integer.valueOf(txcamas);
+        Integer mesas = Integer.valueOf(txmesas);
+        Integer sillas = Integer.valueOf(txsillas);
+        Integer sillones = Integer.valueOf(txsillones);
 
 
-        if (!sabanas.isChecked()) {
+        if (camas >= 300 ||
+                mesas >= 300 ||
+                sillas >= 300 ||
+                sillones >= 300) {
             // Mostramos un mensaje emergente;
             Toast.makeText(getApplicationContext(), "Selecciona una cantidad entre 0 y 300", Toast.LENGTH_SHORT).show();
-        } else {
+        }
+        if (camas == 0 &&
+                mesas == 0 &&
+                sillas == 0 &&
+                sillones == 0) {
+            Toast.makeText(getApplicationContext(), "El pedido no puede estar vacío", Toast.LENGTH_SHORT).show();
+
+
+        }else {
             new AlertDialog.Builder(this)
                     .setTitle("Enviar")
                     .setMessage("Se va a proceder al envio")

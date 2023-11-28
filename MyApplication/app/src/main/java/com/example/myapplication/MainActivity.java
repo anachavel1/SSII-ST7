@@ -15,8 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     // Setup Server information
-    protected static String server = "192.168.1.133";
-    //10.0.2.1
+    protected static String server = "10.0.2.2";
+    //
     protected static int port = 7070;
 
     @Override

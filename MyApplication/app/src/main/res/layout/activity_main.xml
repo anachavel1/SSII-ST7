@@ -129,4 +129,18 @@
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="35dp" />
 
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Id. Empleado"/>
+
 </RelativeLayout>

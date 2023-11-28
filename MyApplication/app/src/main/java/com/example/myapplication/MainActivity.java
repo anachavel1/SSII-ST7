@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
         EditText nmesas = (EditText) findViewById(R.id.nmesas);
         EditText nsillas = (EditText) findViewById(R.id.nsillas);
         EditText nsillones = (EditText) findViewById(R.id.nsillones);
+        EditText nidEmpleado = (EditText) findViewById(R.id.idEmpleado);
 
 
         String txcamas = ncamas.getText().toString();
         String txmesas = nmesas.getText().toString();
         String txsillas = nsillas.getText().toString();
         String txsillones = nsillones.getText().toString();
+        String txidEmpleado = nidEmpleado.getText().toString();
 
         if (txcamas.matches("")) {
             txcamas = "0";
@@ -64,13 +66,20 @@ public class MainActivity extends AppCompatActivity {
         if (txsillones.matches("")) {
             txsillones = "0";
         }
+        if (txidEmpleado.matches("")) {
+            txidEmpleado = "0";
+        }
 
         Integer camas = Integer.valueOf(txcamas);
         Integer mesas = Integer.valueOf(txmesas);
         Integer sillas = Integer.valueOf(txsillas);
         Integer sillones = Integer.valueOf(txsillones);
+        Integer idEmpleado = Integer.valueOf(txidEmpleado);
 
-
+        if (idEmpleado == 0) {
+            // Mostramos un mensaje emergente;
+            Toast.makeText(getApplicationContext(), "Indique un numero de empleado válido", Toast.LENGTH_SHORT).show();
+        }
         if (camas >= 300 ||
                 mesas >= 300 ||
                 sillas >= 300 ||
@@ -83,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 sillas == 0 &&
                 sillones == 0) {
             Toast.makeText(getApplicationContext(), "El pedido no puede estar vacío", Toast.LENGTH_SHORT).show();
-
-
         }else {
             new AlertDialog.Builder(this)
                     .setTitle("Enviar")
@@ -96,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
 
                                     // 1. Extraer los datos de la vista
+                                    String mensaje = camas.toString() +"/"+ mesas.toString() +"/"+ sillas.toString() +"/"+ sillones.toString() +"/"+idEmpleado.toString()+"/";
+                                    //     mensaje : c###/m###/s###/s###/id#####/
 
                                     // 2. Firmar los datos
 

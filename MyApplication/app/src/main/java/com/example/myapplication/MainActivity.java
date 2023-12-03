@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
 
                         // 1. Extraer los datos de la vista
-                        String mensaje = camas + "|" + mesas + "|" + sillas + "|" + sillones + "|" + idEmpleado + "|";
+                        String mensaje = camas + "|" + mesas + "|" + sillas + "|" + sillones + "|" + idEmpleado;
                         //     mensaje : c###/m###/s###/s###/id#####/
 
 
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                                     Socket socket = new Socket(server, port);
 
                                     // Enviar datos al servidor
-                                    String mensajecompleto = mensaje + finalFirma.toString();
+                                    String mensajecompleto = mensaje + "||" + finalFirma;
 
                                     OutputStream outputStream = socket.getOutputStream();
                                     outputStream.write(mensajecompleto.getBytes());

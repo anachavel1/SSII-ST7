@@ -35,28 +35,29 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 
                 print(idEmpleado)
                 print("Transacción válida: \n" + str(data3) + "\n")
+            
                 
                 
                 # Suponiendo que ya tienes la clave pública 'public_key' y el mensaje 'message'
                 # También suponiendo que la firma 'firma' está en formato Base64
 
                 # Crear una instancia de objeto hash SHA-256
-                hash_obj = SHA256.new((mensaje2).encode('utf-8'))
+                hash_obj = SHA256.new(mensaje2.encode('utf-8'))
 
                 # Crear una instancia de objeto de clave pública RSA
                 rsa_key = RSA.import_key(public_key)
                 
                 # Decodificar la firma desde Base64
-                signature = firma
-
+                signature = base64.b64decode(firma.encode()).strip()
              
-                
+                print("El mensaje es: " + mensaje2)
+                print("La firma es: " + firma)
                 try:
                 # Verificar la firma
                     pkcs1_15.new(rsa_key).verify(hash_obj, signature)
                     print("La firma es válida.")
-                except (ValueError, TypeError):
-                    print("La firma no es válida.")
+                except Exception as e:
+                    print("La firma no es válida.", e)
 
                 
                 break

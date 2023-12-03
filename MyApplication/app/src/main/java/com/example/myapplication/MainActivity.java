@@ -196,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
 
                                     // Enviar datos al servidor
                                     String mensajecompleto = mensaje + "||" + finalFirma;
+                                    Log.d("Atenchon","El mensaje es: " + mensaje);
+                                    Log.d("Atenchon","La firma es: " + finalFirma);
 
                                     OutputStream outputStream = socket.getOutputStream();
                                     outputStream.write(mensajecompleto.getBytes());

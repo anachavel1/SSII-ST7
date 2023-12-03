@@ -1,22 +1,32 @@
 package com.example.myapplication;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 
 public class MainActivity extends AppCompatActivity {
 
     // Setup Server information
     protected static String server = "10.0.2.2";
-    //
+    //10.0.2.2
+    //192.168.1.134
     protected static int port = 7070;
 
     @Override
@@ -28,12 +38,7 @@ public class MainActivity extends AppCompatActivity {
         View button = findViewById(R.id.button_send);
 
         // Llama al listener del boton Enviar
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
+        button.setOnClickListener(view -> showDialog());
 
 
     }
@@ -70,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
             txidEmpleado = "0";
         }
 
-        Integer camas = Integer.valueOf(txcamas);
-        Integer mesas = Integer.valueOf(txmesas);
-        Integer sillas = Integer.valueOf(txsillas);
-        Integer sillones = Integer.valueOf(txsillones);
-        Integer idEmpleado = Integer.valueOf(txidEmpleado);
+        int camas = Integer.parseInt(txcamas);
+        int mesas = Integer.parseInt(txmesas);
+        int sillas = Integer.parseInt(txsillas);
+        int sillones = Integer.parseInt(txsillones);
+        int idEmpleado = Integer.parseInt(txidEmpleado);
 
         if (idEmpleado == 0) {
             // Mostramos un mensaje emergente;
@@ -93,35 +98,73 @@ public class MainActivity extends AppCompatActivity {
                 sillones == 0) {
             Toast.makeText(getApplicationContext(), "El pedido no puede estar vacío", Toast.LENGTH_SHORT).show();
         }else {
-            new AlertDialog.Builder(this)
-                    .setTitle("Enviar")
-                    .setMessage("Se va a proceder al envio")
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Enviar");
+            builder.setMessage("Se va a proceder al envio");
+            builder.setIcon(android.R.drawable.ic_dialog_alert);
+            // Catch ok button and send information
+            builder.setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
 
-                                // Catch ok button and send information
-                                public void onClick(DialogInterface dialog, int whichButton) {
+                // 1. Extraer los datos de la vista
+                String mensaje = camas + "|" + mesas + "|" + sillas + "|" + sillones + "|" + idEmpleado + "|";
+                //     mensaje : c###/m###/s###/s###/id#####/
 
-                                    // 1. Extraer los datos de la vista
-                                    String mensaje = camas.toString() +"/"+ mesas.toString() +"/"+ sillas.toString() +"/"+ sillones.toString() +"/"+idEmpleado.toString()+"/";
-                                    //     mensaje : c###/m###/s###/s###/id#####/
 
-                                    // 2. Firmar los datos
+                // 2. Firmar los datos
 
-                                    // 3. Enviar los datos
+                // 3. Enviar los datos
 
-                                    Toast.makeText(MainActivity.this, "Petición enviada correctamente", Toast.LENGTH_SHORT).show();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            // Conectar al servidor
+                            Socket socket = new Socket(server, port);
+
+                            // Enviar datos al servidor
+                            OutputStream outputStream = socket.getOutputStream();
+                            outputStream.write(mensaje.getBytes());
+
+                            // Recibir respuesta del servidor
+                            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                            final String response = bufferedReader.readLine();
+
+                            // Actualizar la interfaz de usuario desde el hilo principal
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Log.d("SocketClient", "Respuesta del servidor: " + response);
+                                    // Aquí puedes realizar cualquier acción en la interfaz de usuario con la respuesta del servidor
                                 }
-                            }
+                            });
 
-                    )
-                            .
+                            // Cerrar el socket
+                            socket.close();
 
-                    setNegativeButton(android.R.string.no, null)
+                        } catch (UnknownHostException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
 
-                            .
 
-                    show();
+
+                        Toast.makeText(getApplicationContext(), "Pedido enviado", Toast.LENGTH_SHORT).show();
+
+                // exit application
+
+
+
+
+
+                Toast.makeText(MainActivity.this, "Petición enviada correctamente", Toast.LENGTH_SHORT).show();
+            }
+
+            );
+            builder.setNegativeButton(android.R.string.no, null);
+            builder.show();
         }
     }
 

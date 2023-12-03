@@ -23,7 +23,7 @@ import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
+import android.util.Base64;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -110,129 +110,128 @@ public class MainActivity extends AppCompatActivity {
             // Catch ok button and send information
             builder.setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
 
-                // 1. Extraer los datos de la vista
-                String mensaje = camas + "|" + mesas + "|" + sillas + "|" + sillones + "|" + idEmpleado + "|";
-                //     mensaje : c###/m###/s###/s###/id#####/
+                        // 1. Extraer los datos de la vista
+                        String mensaje = camas + "|" + mesas + "|" + sillas + "|" + sillones + "|" + idEmpleado + "|";
+                        //     mensaje : c###/m###/s###/s###/id#####/
 
 
-                // 2. Firmar los datos
-                String privateKeyPEM = "-----BEGIN RSA PRIVATE KEY-----\n" +
-                        "MIIEpQIBAAKCAQEAxZV1ATT0gdajScIBsqzgbUvitYtFatcmWE0ABgbB8DFvPRJj\n" +
-                        "7eDpFn0g43x6ZKa33lSpgqBGCuk0U/tbsOKxvile8z8nY8t4Aa3d9Fs5xoU10aVO\n" +
-                        "QenP4D6IMV3svNnbcB3pXoAuDdZtppYZiRHeGvISnSi8ZXBnQrJPaIjyjOTO1JvI\n" +
-                        "SEs2qIJ+EXY98Ba9ewOigfZCvdLUIaxQ8fkFPljOidlcC5jpzsxdh8AyriHu6+5S\n" +
-                        "4u5ceY43iWY6XYhcVY7IZ7BypfqjiawM7IXIrTL6C9qQfWdm7r213KH83cR/DkiS\n" +
-                        "220ka58MVfnJbXtbcml7wwPK4N64fOLmwFWCtQIDAQABAoIBAALGDlZt/+CyuqgW\n" +
-                        "aR+w/ZWLMyuJQPg2/PrQWee7wI02pHEfCPgV6C/Aoe2Pmcg/7uTYG2kSBumwTGPB\n" +
-                        "a5AYHpakzghsIolsGcssPalofm8i/5Zp06dpONnVBuRqhSBBjqsMQHJrKjpXgEKO\n" +
-                        "aN1butp1+3zpTXu/EDQHfMXi5kTECypbKA63rv3wDxMywqszqny2MaWfD4VoZTPe\n" +
-                        "Md88AYzfsmIVzMOrpBknO/2dZta7GQ1g6RaIT+lLsYrvDksP9XZIGbTxKXWHW5Zv\n" +
-                        "/32tMfN8apHVhseyLEg6gm5pFbtTj9s4BQVapJuUiIdb2qStdfVnTdyItWULPp3q\n" +
-                        "GxTA9gECgYEA+Qm0uADAhnvxUY0nk8xNmsvDeGYy098nwpNcPGulPdiB30lTfZX1\n" +
-                        "72IENBl25xwcX26jylBhoSN/U5AZHdK63luAuOWcy5VUB3kDB3zZU2nowFk3i6zy\n" +
-                        "AJE99Psgdu4OeerLyw1zuCWsC3K2Pb9AQj4BaCwouoLKgLreT3xOOGUCgYEAyxuC\n" +
-                        "N9PbdvUt1MsIBfn0Ev8zQ8KF5dXJgeZpMi3fzdTMAsp9SOcN5Q5b4NjAQ74BKy7U\n" +
-                        "+kIFX56EFVRne6yuLlPG1DoLMXJfEG9iXOaUEyAgeIPcueZ0SvvjL+3iUYJF1IEE\n" +
-                        "gUz0bMSEyCcNj/wdbP+9/EKpjadcqPc+MS7edBECgYEAjdCBIOcMu4iI+y+ugfOt\n" +
-                        "naC7RyyrdQt20M6pj56dEoLgMg7HhJSI4DCoxCJcG29emNmgW+06K1DTiPpd0yXV\n" +
-                        "VBo3SxM2HpiCqV634uOtvlppOF+VyexKQxhyd7cp3Y/innqeYprectbBCiPgs3jd\n" +
-                        "VtuIYZID/3HLb1L6lbjrsiECgYEAwi6Vq8xYGX5FCBnonNYhPPxSRek3XMqtcg0Y\n" +
-                        "7Amh3EcjmVOAvm9xAFpfCzQPdXS151RJ+M2gF5AU1dOxcDNjABXGlWa9BtRDARKM\n" +
-                        "pycn0LU5dh8Tq4QiEQKLbWpwot765jVHWlt5oHeuPzHfLJash2ZmfEQ7mJu24jAn\n" +
-                        "fJxDwBECgYEA1ejOjkRgopIIC/1ZGBsvGHirbpJB3SriKVzECvkfuONuBZKZQ+ne\n" +
-                        "8g++eC7+jePufArEh63wopxK1RXBZmc/GTWYU62ILFX7AREoe629InrBYJSfwOPz\n" +
-                        "7V3nUv0JlByLfhxgrlmAh/f7OergyFSMqOc4LNajSO+8DrUl08IRkjs=\n" +
-                        "-----END RSA PRIVATE KEY-----\n";
+                        // 2. Firmar los datos
+                        String privateKeyPEM = "-----BEGIN RSA PRIVATE KEY-----\n" +
+                                "MIIEpQIBAAKCAQEAxZV1ATT0gdajScIBsqzgbUvitYtFatcmWE0ABgbB8DFvPRJj\n" +
+                                "7eDpFn0g43x6ZKa33lSpgqBGCuk0U/tbsOKxvile8z8nY8t4Aa3d9Fs5xoU10aVO\n" +
+                                "QenP4D6IMV3svNnbcB3pXoAuDdZtppYZiRHeGvISnSi8ZXBnQrJPaIjyjOTO1JvI\n" +
+                                "SEs2qIJ+EXY98Ba9ewOigfZCvdLUIaxQ8fkFPljOidlcC5jpzsxdh8AyriHu6+5S\n" +
+                                "4u5ceY43iWY6XYhcVY7IZ7BypfqjiawM7IXIrTL6C9qQfWdm7r213KH83cR/DkiS\n" +
+                                "220ka58MVfnJbXtbcml7wwPK4N64fOLmwFWCtQIDAQABAoIBAALGDlZt/+CyuqgW\n" +
+                                "aR+w/ZWLMyuJQPg2/PrQWee7wI02pHEfCPgV6C/Aoe2Pmcg/7uTYG2kSBumwTGPB\n" +
+                                "a5AYHpakzghsIolsGcssPalofm8i/5Zp06dpONnVBuRqhSBBjqsMQHJrKjpXgEKO\n" +
+                                "aN1butp1+3zpTXu/EDQHfMXi5kTECypbKA63rv3wDxMywqszqny2MaWfD4VoZTPe\n" +
+                                "Md88AYzfsmIVzMOrpBknO/2dZta7GQ1g6RaIT+lLsYrvDksP9XZIGbTxKXWHW5Zv\n" +
+                                "/32tMfN8apHVhseyLEg6gm5pFbtTj9s4BQVapJuUiIdb2qStdfVnTdyItWULPp3q\n" +
+                                "GxTA9gECgYEA+Qm0uADAhnvxUY0nk8xNmsvDeGYy098nwpNcPGulPdiB30lTfZX1\n" +
+                                "72IENBl25xwcX26jylBhoSN/U5AZHdK63luAuOWcy5VUB3kDB3zZU2nowFk3i6zy\n" +
+                                "AJE99Psgdu4OeerLyw1zuCWsC3K2Pb9AQj4BaCwouoLKgLreT3xOOGUCgYEAyxuC\n" +
+                                "N9PbdvUt1MsIBfn0Ev8zQ8KF5dXJgeZpMi3fzdTMAsp9SOcN5Q5b4NjAQ74BKy7U\n" +
+                                "+kIFX56EFVRne6yuLlPG1DoLMXJfEG9iXOaUEyAgeIPcueZ0SvvjL+3iUYJF1IEE\n" +
+                                "gUz0bMSEyCcNj/wdbP+9/EKpjadcqPc+MS7edBECgYEAjdCBIOcMu4iI+y+ugfOt\n" +
+                                "naC7RyyrdQt20M6pj56dEoLgMg7HhJSI4DCoxCJcG29emNmgW+06K1DTiPpd0yXV\n" +
+                                "VBo3SxM2HpiCqV634uOtvlppOF+VyexKQxhyd7cp3Y/innqeYprectbBCiPgs3jd\n" +
+                                "VtuIYZID/3HLb1L6lbjrsiECgYEAwi6Vq8xYGX5FCBnonNYhPPxSRek3XMqtcg0Y\n" +
+                                "7Amh3EcjmVOAvm9xAFpfCzQPdXS151RJ+M2gF5AU1dOxcDNjABXGlWa9BtRDARKM\n" +
+                                "pycn0LU5dh8Tq4QiEQKLbWpwot765jVHWlt5oHeuPzHfLJash2ZmfEQ7mJu24jAn\n" +
+                                "fJxDwBECgYEA1ejOjkRgopIIC/1ZGBsvGHirbpJB3SriKVzECvkfuONuBZKZQ+ne\n" +
+                                "8g++eC7+jePufArEh63wopxK1RXBZmc/GTWYU62ILFX7AREoe629InrBYJSfwOPz\n" +
+                                "7V3nUv0JlByLfhxgrlmAh/f7OergyFSMqOc4LNajSO+8DrUl08IRkjs=\n" +
+                                "-----END RSA PRIVATE KEY-----\n";
 
-                // Eliminar los encabezados y retornos de carro
-                privateKeyPEM = privateKeyPEM.replace("-----BEGIN PUBLIC KEY-----", "");
-                privateKeyPEM = privateKeyPEM.replace("-----END PUBLIC KEY-----", "");
-                privateKeyPEM = privateKeyPEM.replaceAll("\\s", "");
+                        // Eliminar los encabezados y retornos de carro
+                        privateKeyPEM = privateKeyPEM.replace("-----BEGIN RSA PRIVATE KEY-----", "");
+                        privateKeyPEM = privateKeyPEM.replace("-----END RSA PRIVATE KEY-----", "");
+                        privateKeyPEM = privateKeyPEM.replaceAll("\\s", "");
+                        privateKeyPEM = privateKeyPEM.replaceAll(" ", "");
 
-                // Decodificar la clave pública desde Base64
+
+                        // Decodificar la clave pública desde Base64
                         byte[] privateKeyBytes = new byte[0];
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                            privateKeyBytes = Base64.getDecoder().decode(privateKeyPEM);
-                        }
-                        byte[] firma = null;
+                        privateKeyBytes = Base64.decode(privateKeyPEM, Base64.DEFAULT);
 
+
+                        byte[] firma = new byte[0];
                         try {
-                    // Crear la especificación de la clave privada
-                    X509EncodedKeySpec keySpec = new X509EncodedKeySpec(privateKeyBytes);
+                            // Crear la especificación de la clave privada
+                            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(privateKeyBytes);
 
-                    // Obtener una instancia de KeyFactory para RSA
-                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+                            // Obtener una instancia de KeyFactory para RSA
+                            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 
-                    // Generar la clave privada
-                    PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
-                    // Crear una instancia de Signature con el algoritmo de firma
-                    Signature sg = Signature.getInstance("SHA256withRSA");
+                            // Generar la clave privada
+                            PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
+                            // Crear una instancia de Signature con el algoritmo de firma
+                            Signature sg = Signature.getInstance("SHA256withRSA");
 
-                    // Inicializar la instancia con la clave privada
-                    sg.initSign(privateKey);
+                            // Inicializar la instancia con la clave privada
+                            sg.initSign(privateKey);
 
 
-                    // Actualizar la firma con los bytes del mensaje
-                    sg.update(mensaje.getBytes());
+                            // Actualizar la firma con los bytes del mensaje
+                            sg.update(mensaje.getBytes());
 
-                    // Firma
-                    firma = sg.sign();
+                            // Firma
+                            firma = sg.sign();
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                // 3. Enviar los datos
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        // 3. Enviar los datos
 
                         byte[] finalFirma = firma;
+
                         new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            // Conectar al servidor
-                            Socket socket = new Socket(server, port);
+                            @Override
+                            public void run() {
 
-                            // Enviar datos al servidor
-                            String mensajecompleto = mensaje + finalFirma.toString();
+                                try {
+                                    // Conectar al servidor
+                                    Socket socket = new Socket(server, port);
 
-                            OutputStream outputStream = socket.getOutputStream();
-                            outputStream.write(mensajecompleto.getBytes());
+                                    // Enviar datos al servidor
+                                    String mensajecompleto = mensaje + finalFirma.toString();
 
-                            // Recibir respuesta del servidor
-                            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                            final String response = bufferedReader.readLine();
+                                    OutputStream outputStream = socket.getOutputStream();
+                                    outputStream.write(mensajecompleto.getBytes());
 
-                            // Actualizar la interfaz de usuario desde el hilo principal
-                            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Log.d("SocketClient", "Respuesta del servidor: " + response);
-                                    // Aquí puedes realizar cualquier acción en la interfaz de usuario con la respuesta del servidor
+                                    // Recibir respuesta del servidor
+                                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                                    final String response = bufferedReader.readLine();
+
+                                    // Actualizar la interfaz de usuario desde el hilo principal
+                                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Log.d("SocketClient", "Respuesta del servidor: " + response);
+                                            // Aquí puedes realizar cualquier acción en la interfaz de usuario con la respuesta del servidor
+                                        }
+                                    });
+
+                                    // Cerrar el socket
+                                    socket.close();
+
+                                } catch (UnknownHostException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                 }
-                            });
-
-                            // Cerrar el socket
-                            socket.close();
-
-                        } catch (UnknownHostException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
-
+                            }
+                        }).start();
 
 
                         Toast.makeText(getApplicationContext(), "Pedido enviado", Toast.LENGTH_SHORT).show();
 
-                // exit application
+                        // exit application
 
 
-
-
-
-                Toast.makeText(MainActivity.this, "Petición enviada correctamente", Toast.LENGTH_SHORT).show();
-            }
+                        Toast.makeText(MainActivity.this, "Petición enviada correctamente", Toast.LENGTH_SHORT).show();
+                    }
 
             );
             builder.setNegativeButton(android.R.string.no, null);

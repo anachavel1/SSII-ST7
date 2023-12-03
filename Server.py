@@ -24,7 +24,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     continue
 
                 camas, mesas, sillas, sillones, idEmpleado, firma = data_str.split("|")
-
+                
+                
                 print(idEmpleado)
                 print("Transacción válida: \n" + str(data3) + "\n")
                 
